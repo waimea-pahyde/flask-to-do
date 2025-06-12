@@ -33,3 +33,20 @@
 #messages .message.success { color: var(--pico-ins-color); }
 #messages .message.error   { color: var(--pico-del-color); }
 
+
+
+
+/* my shitty little css pile */
+h1#title {
+    text-align: center;
+}
+ 
+ div#priority {
+    display: inline;
+    
+ }
+
+ form#newTask {
+    line-height: 200%;
+ }
+

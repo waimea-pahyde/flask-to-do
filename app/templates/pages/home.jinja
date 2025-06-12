@@ -17,30 +17,61 @@
 
 {% block content %}
 
-    <h1>To-Do List</h1>
+    <h1 id="title">To-Do List</h1>
+
+<article id="taskList">
 
   {% for thing in things %}
 
-                <li>
-                    <a href="/thing/{{ thing.id }}">
+                        <div id="priority">
+                       <strong> {{thing.priority}} </strong>
+                        </div>
+
                         {{ thing.name }}
-                    </a>
-                </li>
+                        
+                        <br>
+                
+      
 
             {% else %}
 
                 <p>None!</p>
 
+
             {% endfor %}
 
 
-<h2> Add new task</h2>
+</article>
 
-<form>
+ <article>
 
+        <h3>New Task</h3>
 
+        <form action="/add" method="POST" id="newTask">
 
-</form>
+            <input
+                type="text"
+                name="name"
+                placeholder="Task"
+                required>
+                
+            
+                <select name="priority" aria-label="Priority?" required>
+                            <option selected disabled value="">
+                                priority
+                            </option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                </select>
+
+            <button>Add Task</button>
+
+        </form>
+
+    </article>
 
 {% endblock %}
 
