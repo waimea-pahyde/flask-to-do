@@ -29,6 +29,11 @@
 
                         {{ thing.name }}
                         
+                        <div id="done">
+                        
+                        {{if thing.complete == 0}}
+                        </div>
+
                         <br>
                 
       
@@ -48,15 +53,16 @@
         <h3>New Task</h3>
 
         <form action="/add" method="POST" id="newTask">
-
+            <fieldset role="group">
             <input
+                id="input"
                 type="text"
                 name="name"
                 placeholder="Task"
                 required>
                 
             
-                <select name="priority" aria-label="Priority?" required>
+                <select name="priority" aria-label="Priority?" required id="dropDown">
                             <option selected disabled value="">
                                 priority
                             </option>
@@ -67,7 +73,8 @@
                             <option>5</option>
                 </select>
 
-            <button>Add Task</button>
+            <button id="addTask">Add Task</button>
+            </fieldset>
 
         </form>
 

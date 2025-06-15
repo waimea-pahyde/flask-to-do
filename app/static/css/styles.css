@@ -50,3 +50,37 @@ h1#title {
     line-height: 200%;
  }
 
+ #input {
+   min-width: 20rem;
+ }
+
+ #addTask {
+    text-align: center;
+    max-width: min-content;
+    white-space: nowrap;
+ }
+
+ /* article {
+    
+    justify-content: center;
+    align-items: center;
+    
+ } */
+
+ main{ 
+    width: 30%;
+    justify-items: center;
+ }
+
+ #taskList{
+    box-shadow: none;
+    background-color: #EFECAB;
+    font-family: cursive;
+    text-decoration: underline dotted;
+    line-height: 300%;
+
+ }
+
+#done {
+    display: inline;
+}

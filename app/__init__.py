@@ -28,7 +28,7 @@ def index():
     with connect_db() as client:
         
         # Get all the things from the DB
-        sql = "SELECT name, priority FROM tasks ORDER BY priority DESC"
+        sql = "SELECT name, priority, complete FROM tasks ORDER BY priority DESC"
         result = client.execute(sql)
         things = result.rows
         # And show them on the page
@@ -43,6 +43,7 @@ def add_a_thing():
     # Get the data from the form
     name  = request.form.get("name")
     priority = request.form.get("priority")
+    
 
     # Sanitise the inputs
     name = html.escape(name)
