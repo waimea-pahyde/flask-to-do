@@ -23,16 +23,27 @@
 
   {% for thing in things %}
 
+                        <span class="priority-{{thing.priority}}">
+
                         <div id="priority">
                        <strong> {{thing.priority}} </strong>
-                        </div>
+                        </div></span>
 
                         {{ thing.name }}
                         
                         <div id="done">
+
                         
-                        {{if thing.complete == 0}}
+                        
+                        {% if thing.complete == 0 %}
+                            <a href="/complete/{{ thing.id }}">☐</a>
+                        
+                        {% else %}
+                            <a href="/incomplete/{{ thing.id }}">🗹</a>
+                        {% endif %}
                         </div>
+
+                        <a href="/delete/{{thing.id}}" id="delete" onclick="return confirm('Really delete?');">⌫</a>
 
                         <br>
                 

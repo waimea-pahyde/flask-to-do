@@ -2,7 +2,9 @@
   User stylesheet - Building upon PicoCSS
 =====================================================*/
 
-
+html {
+    font-family: cursive;
+}
 /* ABOUT PAGE -------------------------------------------- */
 
 #tech-stack {
@@ -83,4 +85,28 @@ h1#title {
 
 #done {
     display: inline;
+}
+
+#delete {
+    align-self: right; 
+    color: red;
+}
+
+.priority-1{
+    color: blue;
+}
+
+.priority-2{
+    color: #42FB08;
+}
+
+.priority-3{
+    color: yellow;
+}
+.priority-4{
+    color: orange;
+}
+
+.priority-5{
+    color:  red;
 }

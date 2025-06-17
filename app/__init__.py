@@ -28,7 +28,7 @@ def index():
     with connect_db() as client:
         
         # Get all the things from the DB
-        sql = "SELECT name, priority, complete FROM tasks ORDER BY priority DESC"
+        sql = "SELECT id, name, priority, complete FROM tasks ORDER BY priority DESC"
         result = client.execute(sql)
         things = result.rows
         # And show them on the page
@@ -67,12 +67,29 @@ def add_a_thing():
 def delete_a_thing(id):
     with connect_db() as client:
         # Delete the thing from the DB
-        sql = "DELETE FROM things WHERE id=?"
+        sql = "DELETE FROM tasks WHERE id=?"
         values = [id]
         client.execute(sql, values)
 
         # Go back to the home page
         flash("Thing deleted", "warning")
-        return redirect("/things")
+        return redirect("/")
+    
+
+@app.get("/complete/<int:id>")
+def changeTask(id):
+        with connect_db() as client:
+            sql = "UPDATE tasks SET (complete)  = 1 WHERE id=?"
+            values = [id]
+            client.execute(sql , values)
+            return redirect("/")
+        
+@app.get("/incomplete/<int:id>")
+def changeTaskByRemoving(id):
+        with connect_db() as client:
+            sql = "UPDATE tasks SET (complete)  = 0 WHERE id=?"
+            values = [id]
+            client.execute(sql , values)
+            return redirect("/")
 
 
